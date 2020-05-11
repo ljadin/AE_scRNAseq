@@ -39,6 +39,7 @@ pbmc <- subset(pbmc, subset=nFeature_RNA > 200 & nFeature_RNA < 2500 & percent.m
 
 
 ### Data normalization
+
 ```{r}
 pbmc <- NormalizeData(pbmc, normalization.method = 'LogNormalize', scale.factor = 10000)
 ```
@@ -50,6 +51,8 @@ pbmc <- FindVariableFeatures(pbmc, selection.method = 'vst', nfeatures = 2000)
 top2000 <- VariableFeatures(pbmc)
 
 ```
+
+### Data cleanup and saving to file
 
 ```{r}
 mat <- GetAssayData(pbmc, slot='counts')
